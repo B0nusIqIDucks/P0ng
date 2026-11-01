@@ -34,6 +34,13 @@ players[1] = new Player()
 pad = new Box()
 console.log(players[0])
 console.log(players[1])
+
+const pads = [pad1,pad2]
+pads[0] = players[0].pad
+pads[1] = players[1].pad
+console.log(pads[0])
+console.log(pads[1])
+
 function main()
 {
     // Erases the canvas
@@ -42,51 +49,51 @@ function main()
     // p1 accelerates when key is pressed 
     if(keys[`w`])
     {
-       p1.vy += -p1.force
+       pads[0].vy += -pads[0].force
     }
 
     if(keys[`s`])
     {
-        p1.vy += p1.force
+        pads[0].vy += pads[0].force
     }
 //change to up and down arrow keys
     if(keys[`ArrowUp`])
     {
-        p2.vy += - p2.force
+        pads[1].vy += -pads[1].force
     }
 
     if(keys[`ArrowDown`])
     {
-        p2.vy += p2.force
+        pads[1].vy += pads[1].force
     }
 
     // Applies friction
-    p1.vy *= fy
-    p2.vy *= fy
+    pads[0].vy *= fy
+    pads[1].vy *= fy
     // Player movement
-    p1.move();
-    p2.move();
+    pads[0].move();
+    pads[1].move();
 
     // Ball movement
     ball.move();
 
     // p1 collision
-    if (p1.y < 0+p1.h/2)
+    if (pads[0].y < 0+pads[0].h/2)
     {
-        p1.y = 0+p1.h/2
+        pads[0].y = 0+pads[0].h/2
     }
-    if (p1.y > c.height-p1.h/2)
+    if (pads[0].y > c.height-pads[0].h/2)
     {
-        p1.y = c.height-p1.h/2
+        pads[0].y = c.height-pads[0].h/2
     }
 
-    if (p2.y < 0+p2.h/2)
+    if (pads[1].y < 0+pads[1].h/2)
     {
-        p2.y = 0+p2.h/2
+        pads[1].y = 0+pads[1].h/2
     }
-    if (p2.y > c.height-p2.h/2)
+    if (pads[1].y > c.height-pads[1].h/2)
     {
-        p2.y = c.height-p2.h/2
+        pads[1].y = c.height-pads[1].h/2
     }
 
     // Ball collision 
@@ -112,20 +119,20 @@ function main()
     }
 
     // p1 with ball collision
-    if (ball.collide(p1))
+    if (ball.collide(pads[0]))
     {
-        ball.x = p1.x + p1.w/2 + ball.w/2
+        ball.x = pads[0].x + pads[0].w/2 + ball.w/2
         ball.vx = -ball.vx;
     }
 
-    if (ball.collide(p2))
+    if (ball.collide(pads[1]))
     {
-        ball.x =  p2.x - p2.w/2 - ball.w/2
+        ball.x =  pads[1].x - pads[1].w/2 - ball.w/2
         ball.vx = -ball.vx;
     }
 
     // Draw the objects
-    p1.draw()
-    p2.draw()
+    pads[0].draw()
+    pads[1].draw()
     ball.draw()
 }
