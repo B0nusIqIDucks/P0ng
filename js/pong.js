@@ -28,6 +28,12 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `black`
 
+const players = [p1,p2]
+players[0] = new Player()
+players[1] = new Player()
+pad = new Box()
+console.log(players[0])
+console.log(players[1])
 function main()
 {
     // Erases the canvas
