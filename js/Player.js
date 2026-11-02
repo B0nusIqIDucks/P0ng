@@ -1,8 +1,8 @@
 class Player {
-    constructor() {
-        this.name = "";
+    constructor(name,pad) {
+        this.name = name;
         this.score = 0;
         this.highScore = 0;
-        this.pad = null;
+        this.pad = pad;
     }
 }

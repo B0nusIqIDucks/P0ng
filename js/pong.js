@@ -28,10 +28,9 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `black`
 
-const players = [p1,p2]
-players[0] = new Player()
-players[1] = new Player()
-pad = new Box()
+const players = []
+players[0] = new Player("p1", new Box())
+players[1] = new Player("p2", new Box())
 console.log(players)
 
 function main()
