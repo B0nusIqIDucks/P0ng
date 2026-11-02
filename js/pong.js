@@ -35,6 +35,10 @@ pads[1].h = 150
 pads[1].x = 780 + pads[1].w/2
 
 console.log(pads)
+
+let scoreL = 0;
+let scoreR = 0;
+
 function main()
 {
     // Erases the canvas
@@ -89,19 +93,21 @@ function main()
     {
         pads[1].y = c.height-pads[1].h/2
     }
-    let scoreL = 0;
-    let scoreR = 0;
 
     // Ball collision 
     if (ball.x < 0)
     {
         ball.x = c.width/2
         ball.y = c.height/2
+        scoreL++
+        console.log(scoreL + " | " + scoreR)
     }
     if (ball.x > c.width)
     {
         ball.x = c.width/2
         ball.y = c.height/2
+        scoreR++
+        console.log(scoreL + " | " + scoreR)
     }
     if (ball.y < 0)
     {
