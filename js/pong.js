@@ -39,6 +39,8 @@ console.log(pads)
 let scoreL = 0;
 let scoreR = 0;
 
+let s = document.querySelectorAll('div')
+
 function main()
 {
     // Erases the canvas
@@ -136,4 +138,15 @@ function main()
     pads[0].draw()
     pads[1].draw()
     ball.draw()
+    for (let i = 0; i < s.length; i++)
+    {
+        if (i == 0)
+        {
+            s[i].innerHTML = scoreL;
+        }
+        else
+        {
+            s[i].innerHTML = scoreR;
+        }
+    }
 }
