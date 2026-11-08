@@ -78,24 +78,35 @@ function main()
     ball.move();
 
     // p1 collision
-    if (pads[0].y < 0+pads[0].h/2)
-    {
-        pads[0].y = 0+pads[0].h/2
-    }
-    if (pads[0].y > c.height-pads[0].h/2)
-    {
-        pads[0].y = c.height-pads[0].h/2
-    }
+    //if (pads[0].y < 0+pads[0].h/2)
+   // {
+   //     pads[0].y = 0+pads[0].h/2
+  //  }
+ //   if (pads[0].y > c.height-pads[0].h/2)
+  //  {
+  ///      pads[0].y = c.height-pads[0].h/2
+  //  }
 
-    if (pads[1].y < 0+pads[1].h/2)
+ //   if (pads[1].y < 0+pads[1].h/2)
+ //   {
+ //       pads[1].y = 0+pads[1].h/2
+ //   }
+ //   if (pads[1].y > c.height-pads[1].h/2)
+ //   {
+ //       pads[1].y = c.height-pads[1].h/2
+ //   }
+    for (let i = 0; i < players.length; i++)
     {
-        pads[1].y = 0+pads[1].h/2
-    }
-    if (pads[1].y > c.height-pads[1].h/2)
-    {
-        pads[1].y = c.height-pads[1].h/2
-    }
+        if (pads[i].y < 0+pads[i].h/2)
+        {
+            pads[i].y = 0+pads[i].h/2;
+        }
 
+        if (pads[i].y > c.height-pads[i].h/2)
+        {
+            pads[i].y = c.height-pads[i].h/2;
+        }
+    }
     // Ball collision 
     if (ball.x < 0)
     {
